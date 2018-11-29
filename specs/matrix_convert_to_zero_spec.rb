@@ -47,7 +47,7 @@ describe "matrix convert to zero" do
       columns_array = [3, 4]
 
       # method call
-      matrix_convert_to_0(matrix)
+      matrix_convert_to_zero(matrix)
 
       # validation
       verify_matrix(matrix, rows_array, columns_array)
@@ -67,7 +67,55 @@ describe "matrix convert to zero" do
       columns_array = [1]
 
       # method call
-      matrix_convert_to_0(matrix)
+      matrix_convert_to_zero(matrix)
+
+      # validation
+      verify_matrix(matrix, rows_array, columns_array)
+    end
+
+    it "only first cell is zero" do
+      #setup
+      rows = 3
+      columns = 6
+      matrix = initialize_matrix(rows, columns)
+      matrix[0][0] = 0 # row 0, column 0
+      rows_array = [0]
+      columns_array = [0]
+
+      # method call
+      matrix_convert_to_zero(matrix)
+
+      # validation
+      verify_matrix(matrix, rows_array, columns_array)
+    end
+
+    it "only middle cell is zero" do
+      #setup
+      rows = 5
+      columns = 7
+      matrix = initialize_matrix(rows, columns)
+      matrix[2][3] = 0 # row 2, column 3
+      rows_array = [2]
+      columns_array = [3]
+
+      # method call
+      matrix_convert_to_zero(matrix)
+
+      # validation
+      verify_matrix(matrix, rows_array, columns_array)
+    end
+
+    it "only the last cell is zero" do
+      #setup
+      rows = 8
+      columns = 7
+      matrix = initialize_matrix(rows, columns)
+      matrix[7][6] = 0 # row 7, column 6
+      rows_array = [7]
+      columns_array = [6]
+
+      # method call
+      matrix_convert_to_zero(matrix)
 
       # validation
       verify_matrix(matrix, rows_array, columns_array)
@@ -85,7 +133,7 @@ describe "matrix convert to zero" do
       columns_array = [1, 3, 4]
 
       # method call
-      matrix_convert_to_0(matrix)
+      matrix_convert_to_zero(matrix)
 
       # validation
       verify_matrix(matrix, rows_array, columns_array)
@@ -102,7 +150,7 @@ describe "matrix convert to zero" do
       columns_array = []
 
       # method call
-      matrix_convert_to_0(matrix)
+      matrix_convert_to_zero(matrix)
 
       # validation
       verify_matrix(matrix, rows_array, columns_array)
