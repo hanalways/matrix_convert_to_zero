@@ -5,6 +5,30 @@
 
 # Time complexity: ?
 # Space complexity: ?
+require 'pry'
 def matrix_convert_to_zero(matrix)
-  raise NotImplementedError
+  return_matrix = []
+  matrix_col = Hash.new
+  is_zero = false
+
+  matrix.each do |row|
+    row.each_with_index do |num, i|
+      if num == 0
+        is_zero = true
+        matrix_col[i] = 1
+      else
+        is_zero = false 
+      end
+    end
+    if is_zero == true
+      return_matrix << Array.new(3, 0)
+    else
+      return_matrix << Array.new(3, 1)
+    end
+  end
+  binding.pry
+  return return_matrix
 end
+
+matrix = [[1,1,1], [1,0,1], [1,1,1], [1,1,0]]
+puts matrix_convert_to_zero(matrix)
